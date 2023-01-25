@@ -37,8 +37,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-  # update_ssh_linode:
-  #   name: Telling Linode Server to Update
+  # update_ssh_vps:
+  #   name: Telling VPS Server to Update
   #   needs: "push_to_registry"
   #   runs-on: ubuntu-latest
   #   steps:
