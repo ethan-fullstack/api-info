@@ -3,7 +3,7 @@ const app = express();
 const port = 9001;
 
 const today = new Date();
-const msg = "this is a test!!";
+const msg = "update and deploy: ok!!";
 
 app.get("/", (req, res) => {
   res.json({ data: today, status: "ok", msg: msg });
