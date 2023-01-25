@@ -49,4 +49,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: make -C downloads/
+          script: sudo make -C downloads/
