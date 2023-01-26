@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
     data: today,
     status: "ok",
     msg: msg,
-    moment: moment().format("MMMM Do YYYY, h:mm:ss a"),
+    moment: moment().format("LLLL"),
   });
 });
 
