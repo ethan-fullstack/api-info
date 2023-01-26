@@ -7,7 +7,12 @@ const today = new Date();
 const msg = "update and deploy: ok!! final";
 
 app.get("/", (req, res) => {
-  res.json({ data: today, status: "ok", msg: msg, moment: moment });
+  res.json({
+    data: today,
+    status: "ok",
+    msg: msg,
+    moment: moment().format("MMMM Do YYYY, h:mm:ss a"),
+  });
 });
 
 app.listen(port, () => {
