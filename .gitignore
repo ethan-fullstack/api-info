@@ -131,5 +131,6 @@ dist
 
 Makefile
 
-/uploads
+/uploads/*
+!/uploads/.gitkeep
 /makefiles
