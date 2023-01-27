@@ -29,6 +29,7 @@ jobs:
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: ethanfullstack/api-info
+          # images: davidcortes10/sevenforever-backend
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -37,16 +38,17 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-  update_ssh_vps:
-    name: Telling VPS Server to Update
-    needs: "push_to_registry"
-    runs-on: ubuntu-latest
-    steps:
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: sudo make -C /home/${{ secrets.USERNAME }}/downloads/
+  # update_ssh_vps:
+  #   name: Telling VPS Server to Update
+  #   needs: "push_to_registry"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: executing remote ssh commands using password
+  #       uses: appleboy/ssh-action@master
+  #       with:
+  #         host: ${{ secrets.HOST }}
+  #         username: ${{ secrets.USERNAME }}
+  #         password: ${{ secrets.PASSWORD }}
+  #         port: ${{ secrets.PORT }}
+  #         script: sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} && sudo make -C /home/${{ secrets.USERNAME }}/deployments/api-info && sudo docker logout
+  #         # script: sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} && sudo make -C /home/${{ secrets.USERNAME }}/deployments/sfe_backend && sudo docker logout

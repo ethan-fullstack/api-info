@@ -130,3 +130,6 @@ dist
 .pnp.*
 
 Makefile
+
+/uploads
+/makefiles
