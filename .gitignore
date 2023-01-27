@@ -133,4 +133,5 @@ Makefile
 
 /uploads/*
 !/uploads/.gitkeep
+!/uploads/logo.png
 /makefiles
